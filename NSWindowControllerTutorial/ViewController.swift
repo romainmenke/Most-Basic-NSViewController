@@ -8,11 +8,17 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextViewDelegate {
 
+    
+    @IBOutlet var textView: NSTextView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +27,9 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    func textDidChange(notification: NSNotification) {
+        print("editing stuff")
+    }
 }
 
